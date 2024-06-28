@@ -1,4 +1,3 @@
-import 'package:catalog_app/utils/logincred.dart';
 import 'package:catalog_app/utils/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +9,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String name = "";
   bool changeButton = false;
 
   final _formKey = GlobalKey<FormState>();
