@@ -1,0 +1,84 @@
+{
+    "products" : [
+        {
+            "id": 1,
+            "name": "Apple iPhone 15 Pro Max",
+            "desc": "Apple iPhone 15 Pro Max (256 GB) - Black Titanium",
+            "price": 150090,
+            "color": "#000000",
+            "image": "https://m.media-amazon.com/images/I/81Os1SDWpcL._SX679_.jpg"
+        },
+        {
+            "id": 2,
+            "name": "OnePlus Nord 3 5G",
+            "desc": "OnePlus Nord 3 5G (Tempest Gray, 8GB RAM, 128GB Storage)",
+            "price": 20999,
+            "color": "#79839b",
+            "image": "https://m.media-amazon.com/images/I/41k+DrrxKfL._SY300_SX300_.jpg"
+        },
+        {
+            "id": 3,
+            "name": "SAMSUNG GALAXY S23 FE 5G",
+            "desc": "SAMSUNG GALAXY S23 FE 5G (MINT 128 GB STORAGE) (8 GB RAM)",
+            "price": 37190,
+            "color": "",
+            "image": "https://m.media-amazon.com/images/I/617l83eY1rL._SX679_.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Redmi 13C",
+            "desc": "Redmi 13C (Stardust Black, 6GB RAM, 128GB Storage)",
+            "price": 8499,
+            "color": "#000000.",
+            "image": "https://m.media-amazon.com/images/I/71d1ytcCntL._SX679_.jpg"
+        },
+        {
+            "id": 5,
+            "name": "POCO C65",
+            "desc": "POCO C65 (Pastel Green 4GB RAM 128GB Storage)",
+            "price": 6799,
+            "color": "#03c03c",
+            "image": "https://m.media-amazon.com/images/I/51NkHXXapeL._SX679_.jpg"
+        },
+        {
+            "id": 6,
+            "name": "realme NARZO 70x 5G ",
+            "desc": "realme NARZO 70x 5G (Ice Blue, 6GB RAM,128GB Storage)",
+            "price": 12999,
+            "color": "#368BC1",
+            "image": "https://m.media-amazon.com/images/I/71nMx5PxibL._SX679_.jpg"
+        },
+        {
+            "id": 7,
+            "name": "iQOO Z7 Pro 5G",
+            "desc": "iQOO Z7 Pro 5G (Blue Lagoon, 8GB RAM, 256GB Storage)",
+            "price": 23999,
+            "color": "#bddeec",
+            "image": "https://m.media-amazon.com/images/I/61Id6WJDWqL._SX679_.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Nokia G42 5G",
+            "desc": "Nokia G42 6GB RAM (4GB RAM + 2GB Virtual RAM)",
+            "price": 9999,
+            "color": "#CBC3E3",
+            "image": "https://m.media-amazon.com/images/I/714-klcm1rL._SY879_.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Oneplus Nord CE 3 5G",
+            "desc": "Oneplus Nord CE 3 5G (Grey Shimmer, 8GB RAM, 128GB Storage)",
+            "price": 18999,
+            "color": "#d6d8da",
+            "image": "https://m.media-amazon.com/images/I/61abLrCfF7L._SX679_.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Apple iPhone 14 Plus",
+            "desc": "Apple iPhone 14 Plus (128 GB) - Midnight",
+            "price": 64999,
+            "color": "#191970.",
+            "image": "https://m.media-amazon.com/images/I/61B0+qQriPL._SX679_.jpg"
+        }
+    ]
+}

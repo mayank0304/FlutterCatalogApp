@@ -1,14 +1,5 @@
 class CatalogModel {
-  static final product = [
-    Item(
-        id: 1,
-        name: "Apple iPhone 15 Pro Max",
-        desc:
-            "Apple iPhone 15 Pro Max (256 GB) - Black Titanium",
-        price: 150090,
-        color: "#000000",
-        image: "https://m.media-amazon.com/images/I/81Os1SDWpcL._SX679_.jpg")
-  ];
+  static List<Item> product = [];
 }
 
 class Item {
@@ -26,4 +17,23 @@ class Item {
       required this.price,
       required this.color,
       required this.image});
+
+  factory Item.fromMap(Map<String, dynamic> map) {
+    return Item(
+        id: map["id"],
+        name: map["name"],
+        desc: map["desc"],
+        price: map["price"],
+        color: map["color"],
+        image: map["image"]);
+  }
+
+  toMap() => {
+    "id": id,
+    "name":name,
+    "desc":desc,
+    "price":price,
+    "color":color,
+    "image": image
+  };
 }
