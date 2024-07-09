@@ -7,6 +7,7 @@ environment:
   sdk: '>=3.4.3 <4.0.0'
 
 dependencies:
+  velocity_x: ^4.2.1
   flutter:
     sdk: flutter
   google_fonts: ^6.2.1

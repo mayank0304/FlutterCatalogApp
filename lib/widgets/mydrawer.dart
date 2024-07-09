@@ -7,7 +7,7 @@ class Mydrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var imgUrl =
-        "https://firebasestorage.googleapis.com/v0/b/mayank-dish-app.appspot.com/o/mayank.jpeg?alt=media&token=4aecebce-a88b-4aad-8d98-ec9061cdc217";
+        "assets/images/mayank.jpeg";
     return Drawer(
       child: Container(
         color: Colors.deepPurple,
@@ -25,7 +25,7 @@ class Mydrawer extends StatelessWidget {
                 accountName: const Text("Mayank", textScaler: TextScaler.linear(1.2),),
                 accountEmail: const Text("mayank771768@gmail.com"),
                 currentAccountPicture: CircleAvatar(
-                  backgroundImage: NetworkImage(imgUrl),
+                  backgroundImage: AssetImage(imgUrl),
                 ),
               ),
             ),
