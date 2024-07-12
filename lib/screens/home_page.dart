@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:catalog_app/models/catalog.dart';
-import 'package:catalog_app/widgets/mydrawer.dart';
+import 'package:catalog_app/utils/routes.dart';
+import 'package:catalog_app/widgets/home_page/catalogheader.dart';
+import 'package:catalog_app/widgets/home_page/cataloglist.dart';
 import 'package:catalog_app/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -36,6 +38,8 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Mytheme.creamColor,
+      floatingActionButton: FloatingActionButton(onPressed: () => Navigator.pushNamed(context, MyRoutes.cartPage), backgroundColor: Mytheme.darkBluishColor, child: const Icon(Icons.shopping_cart, color: Colors.white,),),
+      // drawer: const Mydrawer(),
       body: SafeArea(
         child: Container(
             padding: Vx.m24,
@@ -45,10 +49,8 @@ class _HomePageState extends State<HomePage> {
               children: [
                 const CatalogHeader(),
                 (CatalogModel.product.isNotEmpty)
-                    ? const CatalogList().expand()
-                    : const Center(
-                        child: CircularProgressIndicator(),
-                      )
+                    ? const CatalogList().py16().expand()
+                    : const CircularProgressIndicator().centered().expand()
               ],
             )),
       ),
@@ -95,82 +97,5 @@ class _HomePageState extends State<HomePage> {
       //         ),
       // )
     );
-  }
-}
-
-class CatalogHeader extends StatelessWidget {
-  const CatalogHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: Vx.m12,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          "Catalog App".text.xl5.bold.color(Mytheme.darkBluishColor).make(),
-          "Trending Projects".text.xl2.make(),
-        ],
-      ),
-    );
-  }
-}
-
-class CatalogList extends StatelessWidget {
-  const CatalogList({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: CatalogModel.product.length,
-        itemBuilder: (context, index) {
-          final catalog = CatalogModel.product[index];
-          return CatalogItem(catalog: catalog);
-        });
-  }
-}
-
-class CatalogItem extends StatelessWidget {
-  final Item catalog;
-  const CatalogItem({super.key, required this.catalog});
-
-  @override
-  Widget build(BuildContext context) {
-    return VxBox(
-        child: Row(
-      children: [
-        Image.network(catalog.image)
-            .box
-            .rounded
-            .p8
-            .color(Mytheme.creamColor)
-            .make()
-            .p16()
-            .w40(context),
-        Expanded(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            catalog.name.text.color(Mytheme.darkBluishColor).lg.bold.make(),
-            catalog.desc.text.textStyle(context.captionStyle).make(),
-            10.heightBox,
-            ButtonBar(
-              alignment: MainAxisAlignment.spaceBetween,
-              // buttonPadding: ,
-              children: [
-                catalog.price.text.make(),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: Mytheme.darkBluishColor),
-                    onPressed: () {},
-                    child: "Buy".text.white.make())
-              ],
-            ).pOnly(right: 8.0)
-          ],
-        ))
-      ],
-    )).white.rounded.square(175).make().py16();
   }
 }
