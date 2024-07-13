@@ -1,5 +1,4 @@
 import 'package:catalog_app/models/catalog.dart';
-import 'package:catalog_app/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -14,24 +13,27 @@ class HomeDetailPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
       ),
-      backgroundColor: Mytheme.creamColor,
-      bottomNavigationBar: ButtonBar(
-        alignment: MainAxisAlignment.spaceBetween,
-        // buttonPadding: ,
-        children: [
-          "\u20B9 ${catalog.price}"
-              .text
-              .xl2
-              .color(Mytheme.darkBluishColor)
-              .make(),
-          ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: Mytheme.darkBluishColor),
-                  onPressed: () {},
-                  child: "Add to cart".text.lg.white.make())
-              .wh(150, 50)
-        ],
-      ).p24(),
+      backgroundColor: context.canvasColor,
+      bottomNavigationBar: Container(
+        color: context.cardColor,
+        child: ButtonBar(
+          alignment: MainAxisAlignment.spaceBetween,
+          // buttonPadding: ,
+          children: [
+            "\u20B9 ${catalog.price}"
+                .text
+                .xl2
+                .color(context.accentColor)
+                .make(),
+            ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: context.primaryColor),
+                    onPressed: () {},
+                    child: "Add to cart".text.lg.white.make())
+                .wh(150, 50)
+          ],
+        ).p24(),
+      ),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -46,12 +48,12 @@ class HomeDetailPage extends StatelessWidget {
                 arcType: VxArcType.convey,
                 edge: VxEdge.top,
                 child: Container(
-                  color: Colors.white,
+                  color: context.cardColor,
                   width: context.screenWidth,
                   child: Column(
                     children: [
                       catalog.name.text
-                          .color(Mytheme.darkBluishColor)
+                          .color(context.accentColor)
                           .xl4
                           .bold
                           .center

@@ -3,7 +3,6 @@ import 'package:catalog_app/models/catalog.dart';
 import 'package:catalog_app/utils/routes.dart';
 import 'package:catalog_app/widgets/home_page/catalogheader.dart';
 import 'package:catalog_app/widgets/home_page/cataloglist.dart';
-import 'package:catalog_app/widgets/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -37,8 +36,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Mytheme.creamColor,
-      floatingActionButton: FloatingActionButton(onPressed: () => Navigator.pushNamed(context, MyRoutes.cartPage), backgroundColor: Mytheme.darkBluishColor, child: const Icon(Icons.shopping_cart, color: Colors.white,),),
+      backgroundColor: context.canvasColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, MyRoutes.cartPage),
+        backgroundColor: context.primaryColor,
+        child: const Icon(
+          Icons.shopping_cart,
+          color: Colors.white,
+        ),
+      ),
       // drawer: const Mydrawer(),
       body: SafeArea(
         child: Container(
