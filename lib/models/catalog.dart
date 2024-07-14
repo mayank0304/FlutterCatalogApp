@@ -1,7 +1,13 @@
 class CatalogModel {
+  static final catModel = CatalogModel.internal();
+
+  CatalogModel.internal(); 
+
+  factory CatalogModel() =>  catModel;
+
   static List<Item> product = [];
 
-  static Item getById(int id) {
+  Item getById(int id) {
       return product.firstWhere((e) => e.id == id);
   }
 

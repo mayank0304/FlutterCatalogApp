@@ -15,7 +15,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.system,
       theme: Mytheme.lightTheme(context),
@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       initialRoute: MyRoutes.homeRoute,
       routes: {
         MyRoutes.loginRoute: (context) => const LoginPage(),
-        MyRoutes.homeRoute :(context) => const HomePage(),
+        MyRoutes.homeRoute: (context) => const HomePage(),
         MyRoutes.homeDetailRoute: (context) => const HomeDetailPage(),
         MyRoutes.cartPage: (context) => const CartPage()
       },
