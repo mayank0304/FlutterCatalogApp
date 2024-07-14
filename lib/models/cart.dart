@@ -1,13 +1,6 @@
 import 'package:catalog_app/models/catalog.dart';
 
 class CartModel {
-  // Singleton pattern
-  static final CartModel _cartModel = CartModel._internal();
-
-  CartModel._internal();
-
-  factory CartModel() => _cartModel;
-
   // The catalog field
   CatalogModel _catalog = CatalogModel();
 

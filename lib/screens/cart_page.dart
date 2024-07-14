@@ -1,3 +1,4 @@
+import 'package:catalog_app/core/store.dart';
 import 'package:flutter/material.dart';
 import 'package:catalog_app/models/cart.dart';
 import 'package:velocity_x/velocity_x.dart';
@@ -33,7 +34,7 @@ class _CartTotal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _cart = CartModel();
+    final CartModel _cart = (VxState.store as MyStore).cart;
     return SizedBox(
       height: 200,
       child: Row(
@@ -58,25 +59,22 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-class CartList extends StatefulWidget {
-  const CartList({super.key,});
 
-  @override
-  State<CartList> createState() => _CartListState();
-}
-
-class _CartListState extends State<CartList> {
+class CartList extends StatelessWidget {
   
-final _cart = CartModel();
+  const CartList({super.key});
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    final CartModel _cart = (VxState.store as MyStore).cart;
+    return _cart.items.isEmpty ? "Nothing to show in cart".text.xl2.makeCentered() : ListView.builder(
       itemCount: _cart.items.length,
       itemBuilder: (context, index) => ListTile(
         leading: const Icon(Icons.done),
         trailing: IconButton(
           onPressed: () {
             // Implement removal from cart logic here
+            _cart.remove(_cart.items[index]);
+        
           },
           icon: const Icon(Icons.remove_circle_outline),
         ),
