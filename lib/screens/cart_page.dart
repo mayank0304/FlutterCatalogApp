@@ -28,8 +28,6 @@ class CartPage extends StatelessWidget {
 }
 
 class _CartTotal extends StatelessWidget {
-
-
   const _CartTotal({super.key});
 
   @override
@@ -40,7 +38,16 @@ class _CartTotal extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          "\$${_cart.totalPrice}".text.xl5.color(context.accentColor).make(),
+          VxConsumer(
+            notifications: const {},
+              builder: (context, _, __) {
+                return "\$${_cart.totalPrice}"
+                    .text
+                    .xl5
+                    .color(context.accentColor)
+                    .make();
+              },
+              mutations: const {RemoveMutation}),
           50.widthBox,
           ElevatedButton(
             onPressed: () {
@@ -59,27 +66,27 @@ class _CartTotal extends StatelessWidget {
   }
 }
 
-
 class CartList extends StatelessWidget {
-  
   const CartList({super.key});
   @override
   Widget build(BuildContext context) {
+    VxState.watch(context, on: [RemoveMutation]);
     final CartModel _cart = (VxState.store as MyStore).cart;
-    return _cart.items.isEmpty ? "Nothing to show in cart".text.xl2.makeCentered() : ListView.builder(
-      itemCount: _cart.items.length,
-      itemBuilder: (context, index) => ListTile(
-        leading: const Icon(Icons.done),
-        trailing: IconButton(
-          onPressed: () {
-            // Implement removal from cart logic here
-            _cart.remove(_cart.items[index]);
-        
-          },
-          icon: const Icon(Icons.remove_circle_outline),
-        ),
-        title: _cart.items[index].name.text.make(),
-      ),
-    );
+    return _cart.items.isEmpty
+        ? "Nothing to show in cart".text.xl2.makeCentered()
+        : ListView.builder(
+            itemCount: _cart.items.length,
+            itemBuilder: (context, index) => ListTile(
+              leading: const Icon(Icons.done),
+              trailing: IconButton(
+                onPressed: () {
+                  // Implement removal from cart logic here
+                  RemoveMutation(item: _cart.items[index]);
+                },
+                icon: const Icon(Icons.remove_circle_outline),
+              ),
+              title: _cart.items[index].name.text.make(),
+            ),
+          );
   }
 }
